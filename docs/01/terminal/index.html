@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ca">
+	<head>
+		<title>Terminals</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+		<link href="/assets/style.css" rel="stylesheet">
+		<script src="/assets/code.js"></script>
+	</head>
+
+	<body>
+		<div class="panel">
+			<h1>Terminals</h1>
+			<p><span class="note">Per tornar a la pàgina principal, fes <a href="/">click aquí</a>.</span></p>
+			<p>Fins i tot abans de descarregar programes per aprendre a programar, hi ha una eina integrada a tots els sistemes operatius que hem d'aprendre a fer servir: les <b>terminals</b>.</p>
+			<p>Normalment, quan fem servir ordinadors, utilitzem <i>interfícies gràfiques d'usuari</i>. Les interfícies gràfiques d'usuari són les finestres, botons i elements en els que podem fer clic, arrossegar elements, veure icones i animacions, etc. Les interfícies gràfiques són intuitives i fàcils d'utilitzar, però no sempre són suficients per a usos més avançats com la programació.</p>
+			<p>Les terminals, en canvi, utilitzen únicament text. Les terminals són molt confuses d'utilitzar al principi, però són una eina molt potent quan les aprens a utilitzar... i per certes tasques, resulten indispensables mentre programem.</p>
+		</div>
+
+		<div class="panel">
+			<h2>Obrint una terminal a Windows</h2>
+			<p>Anem a veure com obrir una terminal a Windows!</p>
+			<ul>
+				<li>Primer, crea una carpeta nova a l'escriptori o qualsevol lloc accessible, i anomena-la "terminal".</li>
+				<li>Un cop creada la carpeta, entra-hi a dins i fes <i>click amb el botó dret</i> a l'espai en blanc de la carpeta. En el menú que s'orbi, busca l'opció d'obrir una terminal. La icona de la terminal usualment és una finestra de programa amb un fons negre i alguns símbols.</li>
+			</ul>
+			<p>Si ho has aconseguit, veuràs alguna cosa així:</p>
+			<div><img src="/assets/img/terminal.png"></img></div>
+			<p><span class="note">Si no ho aconsegueixes, hi ha d'altres maneres d'obrir la terminal en la carpeta en la que ens trobem: pots fer clic a la barra de navegació de l'explorador d'arxius, escriure "cmd" i prémer a la tecla "enter" del teu teclat. Si no saps on està la barra de navegació, la forma més fàcil és prémer la combinació de tecles "CTRL + L" (prémer les dues tecles "CTRL" i "L" alhora) mentre estàs dins la carpeta que hem creat.</span></p>
+		</div>
+
+		<div class="panel">
+			<h2>Executant la primera ordre a la terminal</h2>
+			<p>Ara hem d'escriure les nostres <b>ordres</b> en aquesta finestra. Concretament, veruàs que el cursor de text es troba després del símbol <b>></b> a l'última línea que contingui text dins la terminal. Pots escriure i esborrar alguna lletra per comprovar on estàs, no passarà res mentre no premis la tecla "enter".</p>
+			<p>La primera ordre que escriurem es <b>dir</b>. L'ordre "dir" és una abreviació del terme "directory", que vol dir "directori" o "carpeta" en anglès. Amb aquesta ordre, podem <b>veure els continguts de la carpeta en la que ens trobem</b>.</p>
+			<p>Si escrius l'ordre <b>dir</b> i prems la tecla d'"enter" al teclat, hauries de veure alguna cosa així:</p>
+			<div><img src="/assets/img/first_dir.png"></img></div>
+			<p>Depenent de l'idioma en que tinguis configurat l'ordinador, els resultats poden variar lleugerament. Si t'equivoques, no passa res, la terminal et mostrarà un error, però pots continuar escrivint després. En el pitjor dels casos, pots tancar la finestra de la terminal i tornar a obrir-ne una altra.</p>
+			<p>Ara fixem-nos en un parell de detalls del resultat d'executar l'ordre <b>dir</b>:</p>
+			<ul>
+				<li>La línia "0 Files" cap al final del tot ens indica que la carpeta en la que ens trobem no inclou cap fitxer. Això és d'esperar, ja que és una carpeta nova i no hi hem posat res encara.</li>
+				<li>La línia "2 Dirs" cap al final del tot ens indica que el resultat inclou dues carpetes. Això pot semblar estrany: per què hi ha dues carpetes a la nostra carpeta? Les dues carpetes estan llistades al resultat com a "." i "..". Aquestes són dues referencies especials que simplement has d'aprendre què volen dir. La carpeta "." és una referència a la carpeta en la que ens trobem ara mateix. La carpeta ".." és una referència a la carpeta en la que es troba la nostra carpeta. És a dir, la carpeta mare, que conté la nostra carpeta.</li>
+				<li>Les primeres dues línies que parlen de "Volume" no són importants, indiquen el disc dur o la partició en la que ens trobem. Això no ho explicarem ara perque no té importancia.</li>
+				<li>La línia que comença amb "Directory" ens indica la carpeta sobre la que hem executat l'ordre <b>dir</b>. Ara mateix, això tampoc té gaire importancia.</li>
+			</ul>
+		</div>
+
+		<div class="panel">
+			<h2>Creant un fitxer nou</h2>
+			<p>Ara executarem una altra ordre: <b>echo "hola"</b></p>
+			<p>L'ordre "echo" és una ordre que repeteix el text que li escrivim a continuació. Prova a canviar "hola" per altres coses, com "bon dia!", i mira com l'ordre respon.</p>
+			<p>Aquesta ordre no sembla gaire útil... fins que no la combinem amb una altra habilitat que tenen les terminals.</p>
+			<p>El que farem és utilitzar l'ordre "echo" per escriure text... però no a la terminal, sinò a un fitxer nou.</p>
+			<p>Prova a executar <b>echo "bon dia!" > hola.txt</b>.</p>
+			<p>A primera vista, ara no veuràs que hagi passat res... però si mires la teva carpeta, veuràs que ara hi ha un fitxer nou anomenat "hola.txt"! Obre aquest fitxer i veuràs que hi diu bon dia! (o el que hi hagis escrit).</p>
+			<p>De fet, ara pots provar a tornar a executar l'ordre <b>dir</b>, i el nou fitxer hauria d'aparèixer llistat en els resultats!</p>
+		</div>
+
+		<div class="panel">
+			<h2>¿Què hem vist fins ara..?</h2>
+			<p>Per ara, les terminals encara ens resulten molt desconegudes i no semblen massa interessants... però en els capítols següents les farem servir per coses molt més útils. Les terminals són només una eina que necessitarem fer servir, però no un subjecte de particular interès per al que volem aprendre.</p>
+			<p>A mesura que necessitem més coses les anirem explicant, però com a mínim ara hauríem de saber:</p>
+			<ul>
+				<li>Com obrir una terminal en una carpeta específica.</li>
+				<li>Com executar una ordre bàsica.</li>
+			</ul>
+		</div>
+	</body>
+</html>

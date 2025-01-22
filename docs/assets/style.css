@@ -1,0 +1,85 @@
+html {
+	font-family: "Quicksand";
+}
+
+body {
+	background-color: #eceff4;
+	max-width: min(840px, 100%);
+	margin: 0 auto;
+	letter-spacing: 0.15px;
+	font-weight: 400;
+	font-size: 19px;
+}
+
+a {
+	font-weight: 500;
+	color: #e01175;
+	text-decoration: none;
+}
+a:visited {
+	color: #9f0d54;
+}
+a:hover {
+	color: #ff1787;
+}
+
+/* headers */
+
+h1, h1 a, h2, h3, h4 {
+	color: #191e48;
+	letter-spacing: -0.2px;
+	font-weight: 800;
+}
+
+h1 {
+	font-size: 36px;
+	margin-top: 0;
+	margin-bottom: 12px;
+	text-shadow: none;
+}
+h2 {
+	margin: 0;
+	font-size: 25px;
+}
+h3 {
+	font-weight: normal;
+	font-size: 19px;
+	margin: 0;
+	margin-top: 4px;
+}
+p + h3 { margin-top: 26px; }
+h3 + p { margin-top: 8px; }
+p { line-height: 1.26; }
+ul { line-height: 1.35; }
+p, ul {
+	margin: 14px 0;
+}
+ul ul {
+	margin-left: -12px;
+	margin-top: 8px;
+}
+li {
+	margin: 4px 0;
+}
+
+/* images */
+div img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* content divs */
+
+div.panel {
+	margin: 0;
+	margin-top: 24px;
+	margin-bottom: 24px;
+	background-color: rgb(253, 253, 253);
+	border-radius: 8px;
+	padding: 16px 24px;
+}
+
+span.note {
+	font-size: 14px;
+	font-style: italic;
+}
