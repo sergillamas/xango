@@ -88,4 +88,5 @@ pre.code {
 	background-color: #eceff4;
 	border-radius: 8px;
 	padding: 16px;
+	word-wrap: break-word;
 }
