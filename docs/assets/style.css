@@ -83,3 +83,9 @@ span.note {
 	font-size: 14px;
 	font-style: italic;
 }
+
+pre.code {
+	background-color: #eceff4;
+	border-radius: 8px;
+	padding: 16px;
+}
