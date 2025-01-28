@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ca">
+	<head>
+		<title>Primers programes en Go</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+		<link href="/xango/assets/style.css" rel="stylesheet">
+		<script src="/xango/assets/code.js"></script>
+	</head>
+
+	<body>
+		<div class="panel">
+			<h1>Primers programes en Go</h1>
+			<p><span class="note">Per tornar a la pàgina principal, fes <a href="/xango/">clic aquí</a>.</span></p>
+			<p>Ara que ja tenim un compilador de Golang i un editor, és hora de començar a programar.</p>
+			<p>Programar es com escriure una recepta de cuina per un ordinador: li donem instruccions per tal d'arribar al resultat que volem.</p>
+			<p>A diferència de les receptes de cuina, però, la programació és molt més estricta.</p>
+			<ul>
+				<li>No pot fallar cap ingredient.</li>
+				<li>L'ordre en que es processen les instruccions és crítica.</li>
+				<li>L'ordinador farà estrictament el que li diem que faci. Ni res més ni res menys.</li>
+			</ul>
+			<p>En aquest capítol ens centrarem en entendre <b>l'estructura</b> dels programes, i com l'ordre d'execució pot canviar d'una línia o bloc de codi a un altre. En anglès, això s'anomena "control flow" (flux de control, o el camí que segueix un programa durant la seva execució).</p>
+		</div>
+
+		<div class="panel">
+			<h2>Un programa que no fa res</h2>
+			<p>El primer programa que escriurem i executarem és un programa que no fa res.</p>
+			<p>L'objectiu d'aquest programa és familiaritzar-nos amb quines parts són indispensables en un programa en Golang, i com hem d'estructurar un projecte.</p>
+			<p>A Golang, cada projecte s'ha d'escriure en una carpeta separada. Pots tenir una carpeta anomenada "go" i anar creant sub-carpetes per cada projecte. Per exemple, per a aquest programa podriem crear una carpeta anomenada "buit", ja que escriurem un programa buit que no fa res.</p>
+			<p>A més, a Golang cada projecte ha de formar part d'un <b>mòdul</b>. Quan estem escrivint programes molt senzills els mòduls poden resultar un concepte estrany, però quan comencem a crear programes més complexos, voldrem fer servir mòduls que ja haviem escrit abans i combinar-los amb el nostre nou programa. Bàsicament, un mòdul serveix com a delimitador o contenidor per a un conjunt de funcionalitats.</p>
+			<p>Per inicialitzar un mòdul, farem servir l'ordre <b>go mod init {nom-del-modul}</b>. Per exemple, per a aquest projecte podem executar l'ordre <b>go mod init buit</b>. El nom del mòdul pot ser el que tu vulguis, mentre sigui només lletres minúscules i guións (no pots fer servir ni accents ni espais ni altres signes de puntuació).</p>
+			<p>Un cop executada aquesta ordre, veuràs que un fitxer <b>go.mod</b> apareix a la carpeta en la que estem treballant.</p>
+			<p>Quan ja tenim el mòdul, ja podem crear un nou fitxer anomenat <b>main.go</b> i copiar el següent codi:</p>
+<pre class="code">
+package main
+
+func main() {
+	// no fem res
+}
+</pre>
+			<p>Pots executar el programa des de la terminal amb l'ordre <b>go run main.go</b></p>
+		</div>
+
+		<div class="panel">
+			<h2>Entenent el nostre programa buit</h2>
+			<p>El nostre programa buit té tres parts importants que hem d'entendre abans de crear programes més complexos i útils:</p>
+			<ul>
+				<li>La primera línia és <b>package main</b>. Ara mateix els "packages" o paquets no són molt importants, però la idea bàsica es que quan creem programes més grans, podem tenir diverses parts del programa distribuides en diferents "paquets" o conjunts de codi. D'entre aquests paquets, el "main" és un paquet especial que serveix com a punt d'entrada per al nostre programa. Ara mateix només tenim un fitxer de codi, però si hi haguessin molts fitxers... ¿com sabria l'ordinador en quin punt començar a executar un programa? El paquet "main" és un paquet especial que serveix com a punt d'inici per a l'execució del programa. Per d'altres paquets, es poden fer servir altres noms que nosaltres volguem, com <b>package utils</b>, <b>package learngolang</b>, <b>package jijijaja</b>,.. l'única restricció es que els noms estiguin escrits en minúscules i sense espais.</li>
+				<li>La següent línia del programa es una línia en blanc. En general, els llenguatges de programació ignoren les línies en blanc, i nosaltres només les fem servir per separar parts dels programes. Pots provar a afegir o eliminar línies en blanc i veuràs que no passa res: el programa seguirà fent exactament el mateix.</li>
+				<li>La tercera línia és <b>func main() {</b>. Aquesta línia és molt més interessant! La primera paraula, <b>func</b>, és el que anomenem una <b>paraula reservada</b>. Una paraula reservada és una paraula que té un significat especial per al llenguatge de programació. En particular, la paraula <b>func</b> li diu al llenguatge de programació que creï <i>una nova funció</i>. Una funció és una seqüència d'instruccions o ordres que tenen com a objectiu realitzar una tasca específica. A continuació de la paraula <b>func</b> tenim <i>el nom de la funció</i>. En aquest cas, el nom de la funció és <b>main</b>. Com passaba abans amb el paquet main, la funció main és una funció especial que indica per on s'ha de començar a executar el nostre programa. Quan executem l'ordre <b>go run main.go</b> des de la terminal, el programa busca la funció <b>main</b> dins el paquet <b>main</b> per saber on començar a executar instruccions.</li>
+				<li>Encara a la tercera línia, després del nom de la funció, tenim els símbols <b>()</b> i <b>{</b>. De moment ignorarem el <b>()</b>, que sempre s'ha d'escriure darrere del nom de la funció, i ens fixarem només en la clau <b>{</b>. Aquesta clau simplement indica on comença la funció. Si mires més endavant al codi, veuràs que hi ha una altra clau <b>}</b> que <i>tanca</i> o indica on acaba la funció. Per tant, les claus <b>{}</b> són delimitadors d'on comença i acaba un bloc de codi. Més endavant veurem això en més detall.</li>
+				<li>Finalment, a la quarta línia tenim el codi <b>// no fem res</b>. Aquesta línia no fa res, <b>és un comentari</b>. Els comentaris ens ajuden a explicar què passa al codi o documentar per a què serveix, entre d'altres. Els comentaris no afecten al programa i existeixen únicament per donar informació a <b>altres humans llegint el codi</b>. Més endavant, moltes de les explicacions de què fa el codi les posaré directament en comentaris dins el mateix codi!</li>
+			</ul>
+			<p>Tot això és molta informació, i no cal que ho entenguis tot perfectament. Aquestes explicacions són importants per donar-te context i ajudar-te a tenir una primera idea de quines parts té un programa. Quan tinguis una mica més d'experiència, torna a llegir aquestes explicacions i veuràs com tot comença a encaixar millor. Ara encara tenim molt poques peces del trencaclosques, i per tant és difícil fer-se una imatge clara d'on va cadascuna. Poc a poc.</p>
+		</div>
+
+		<div class="panel">
+			<h2>Utilitzant el paquet <b>fmt</b></h2>
+			<p>Ara fem una altra carpeta, inicialitzem un mòdul amb <b>go mod init helloworld</b> i escrivim el següent programa dins un fitxer <b>main.go</b> nou:</p>
+<pre class="code">
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Print("Hello World\n")
+}
+</pre>
+			<p>Prova a executar aquest programa amb <b>go run main.go</b>. A diferència del programa anterior, ara hauries de veure que s'escriu alguna cosa a la terminal: "Hello World".</p>
+			<p>Hmmm, anem a estudiar què hem canviat per que aquest programa ara sí faci alguna cosa:</p>
+			<ul>
+				<li>La primera diferència que veiem comparant amb el primer programa buit, és que aquest programa té la línia <b>import "fmt"</b>. La paraula <b>import</b> vol dir "importar" o "carregar". Recordes que hem dit que podiem contenir el codi en "paquets"? Doncs el que està fent aquesta línia és <b>carregar la informació d'un paquet anomenat fmt</b>. Aquest paquet anomenat "fmt" no l'hem escrit nosaltres, sinò que ja l'han escrit els autors del llenguatge de programació Golang per fer-nos les coses més fàcils. El nom "fmt" és una abreviació de la paraula anglesa "formatting", que vol dir formatejar o donar estructura a un conjunt de dades. De seguida veurem què podem fer amb aquest paquet...</li>
+				<li>La segona diferència és que hem eliminat el comentari que hi havia abans, i en el seu lloc tenim la instrucció <b>fmt.Printf("Hello World\n")</b>. Aquí hi ha moltes coses interessants, atenció:</li>
+				<ul>
+					<li>La primera paraula que veiem és <b>fmt</b>. Efectivament, ens estem referint al mòdul <b>fmt</b> que hem importat o carregat a l'inici del programa.</li>
+					<li>Després de <b>fmt</b> veiem un punt i la paraula <b>Print</b>. Aquesta paraula <b>Print</b> no és una paraula reservada ni res especial del llenguatge; és el nom d'una funció que es troba dins el paquet <b>fmt</b>. En concret, la paraula "print" vol dir "imprimir", i el que fa és escriure o "imprimir" informació a la terminal. Tornant al paquet <b>fmt</b>: com hem explicat abans, podem agrupar un conjunt de codi dins un <b>paquet</b>. I dins de cada <b>paquet</b> podem tenir diverses <b>funcions</b>. Efectivament, les funcions són les seqüències d'instruccions que podem crear amb la paraula <b>func</b>, tal com hem esmentat abans.</li>
+					<li>Ara mateix no cal entendre exactament com s'ha creat aquesta funció <b>Print</b> del paquet <b>fmt</b>: l'única cosa que hem d'entendre és que aquesta funció existeix i amb el nostre codi l'estem invocant. Dins la nostra funció <b>main</b> del nostre paquet <b>main</b>, estem dient-li a l'ordinador que executi una altra funció, la funció <b>Print</b> del paquet <b>fmt</b>. Boom.</li>
+					<li>La tercera part és que la funció rep un <b>paràmetre</b>. En particular, a la funció <b>Print</b> li estem passant el paràmetre <b>"Hello World\n"</b>. Els paràmetres els veurem més endavant, no els explicarem ara en profunditat. L'única cosa que és important és que en aquest cas el paràmetre que estem passant és text que podem modificar com volguem, sempre i quan quedi escrit en una sola línia i delimitat per les cometes <b>"</b>. Si et preguntes què vol dir el <b>\n</b>, això és un <b>salt de línia</b>. Bàsicament, és una codificació que es fa servir en programació per indicar que el text ha de passar a la següent línia. Prova a canviar el text a <b>"Més espai lliure al final\n\n"</b></b>, o <b>"Què passa si no saltem de línia?"</b>, o <b>"\nespai abans i després!\n\n"</b>. Executa el programa amb aquests canvis per entendre com funciona!</li>
+				</ul>
+			</ul>
+			<p>De nou, aquest és un capítol complicat. Encara hi ha moltes coses que no entendràs del tot. Per ara, mira de quedar-te amb la idea que el codi es pot organitzar en paquets i funcions, i que des de les nostres pròpies funcions podem cridar d'altres funcions, com per exemple les d'altres paquets.</p>
+		</div>
+
+		<div class="panel">
+			<h2>Modificacions senzilles</h2>
+			<p>Ara farem algunes modificacions senzilles al codi, només per començar a veure quines coses poden fer les nostres funcions:</p>
+<pre class="code">
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Print("1\n")
+	fmt.Print("2\n")
+	fmt.Print("3\n")
+}
+</pre>
+			<p>En aquest exemple estem utilitzant la única funció útil que coneixem, <b>fmt.Print</b>, però múltiples vegades i amb diferents <b>paràmetres</b>.</p>
+			<p>Tot i això, aquest programa es pot simplificar. Pots aconseguir que el programa retorni el mateix resultat, però fent servir una única crida a <b>fmt.Print</b> en lloc de tres? Pensa com pots modificar el <b>paràmetre</b> que rep la funció.</p>
+		</div>
+
+		<div class="panel">
+			<h2>Definint la nostra primera funció</h2>
+			<p>Ja hem vist la funció <b>Print</b>, però ara volem crear les nostres pròpies funcions. Podem probar una cosa així:</p>
+<pre class="code">
+package main
+
+import "fmt"
+
+func main() {
+	laMevaFuncio()
+}
+
+func laMevaFuncio() {
+	fmt.Print("la meva funció\n")
+}
+</pre>
+			<p>Abans d'executar el programa, pots endevinar què farà?</p>
+			<p>Un cop entenguis com funciona aquest programa... fes que la teva funció s'invoqui a si mateixa. Pots imaginar-te què passarà? Descobreix quin error dóna un programa així al executar-se, segur que més endavant et passarà accidentalment en un moment o altre, i així saps identificar l'error.</p>
+		</div>
+	</body>
+</html>
